@@ -1,7 +1,12 @@
 module Yeppp
 
-@unix_only    const libyeppp = "libyeppp"
-@windows_only const libyeppp = "yeppp"
+macro checked_lib(libname, path)
+    (dlopen_e(path) == C_NULL) && error("Unable to load \n\n$libname ($path).")
+    quote const $(esc(libname)) = $path end
+end
+
+# Load dependencies
+@checked_lib libyeppp "/home/jgoldfar/Documents/work/projects/Yeppp.jl/libyeppp.so"
 
 function __init__()
     const status = ccall( (:yepLibrary_Init, libyeppp), Cint, ())
