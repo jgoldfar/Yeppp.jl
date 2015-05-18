@@ -7,8 +7,10 @@ call Yeppp from Julia.
 
 To use this package, [download
 Yeppp](http://bitbucket.org/MDukhan/yeppp/downloads/yeppp-1.0.0.zip)
-and make sure that `libyeppp` is available on the system library
-search path or in the current directory.
+and extract from the `binaries` folder the file(s) specific to your OS.
+This is `yeppp.dll` on Windows and `libyeppp` file(s) on other OS.
+Make sure the extracted files are available on the system library
+search path or in the current directory.  For example, in Julia's `bin` folder.
 
 See example usage below. Yeppp's vectorized log is 7x faster than the
 one in Base that uses [openlibm](http://www.openlibm.org/).
@@ -22,7 +24,7 @@ t  = @elapsed log(x)
 t/ty
 ````
 
-The following functions are available for `Vector{Float64}`. Inputs
+The following functions are available for `Array{Float64}`. Inputs
 are in `x`, and outputs are in `y`.
 
 ```julia
@@ -39,6 +41,7 @@ multiply!(y, x1, x2)
 
 log!(y, x)
 exp!(y, x)
+evalpoly!(y, x_coeff, x)
 
 sin!(y, x)
 cos!(y, x)
