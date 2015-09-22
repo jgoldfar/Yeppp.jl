@@ -1,14 +1,26 @@
 Yeppp bindings for Julia
 ========================
 
+Linux: [![Build Status](https://travis-ci.org/JuliaLang/Yeppp.jl.svg?branch=master)](https://travis-ci.org/JuliaLang/Yeppp.jl)
+
+Windows: [![Build Status](https://ci.appveyor.com/api/projects/status/github/JuliaLang/Yeppp.jl?branch=master&svg=true)](https://ci.appveyor.com/project/panlanfeng/yeppp-jl/branch/master)
+
 [Yeppp!](http://www.yeppp.info) is a high-performance SIMD-optimized
 mathematical library. This Julia package makes it possible to
 call Yeppp from Julia.
 
-To use this package, [download
-Yeppp](http://bitbucket.org/MDukhan/yeppp/downloads/yeppp-1.0.0.zip)
-and extract from the `binaries` folder the file(s) specific to your OS.
-This is `yeppp.dll` on Windows and `libyeppp` file(s) on other OS.
+Install this package by 
+
+```julia
+Pkg.add("Yeppp")
+```
+
+For common 64-bit platforms, this will download depencency automatically. For some
+other platforms such as PowerPC 64 architecture, you may still be able to 
+use this package by [downloading
+Yeppp!](http://bitbucket.org/MDukhan/yeppp/downloads/yeppp-1.0.0.zip)
+and extracting from the `binaries` folder the file(s) specific to your OS.
+Check the platforms supported by Yeppp! [here](https://bitbucket.org/MDukhan/yeppp).
 Make sure the extracted files are available on the system library
 search path or in the current directory.  For example, in Julia's `bin` folder.
 
@@ -30,7 +42,7 @@ are in `x`, and outputs are in `y`.
 ```julia
 dot(x1, x2)
 sum(x)
-subabs(x)
+sumabs(x)
 sumabs2(x)
 negate!(x)
 max!(y, x1, x2)
@@ -48,5 +60,5 @@ cos!(y, x)
 tan!(y, x)
 ````
 
-See the [Yeppp documentation](http://docs.yeppp.info/c/modules.html)
-for the full set of functions available in Yeppp.
+See the [Yeppp! documentation](http://docs.yeppp.info/c/modules.html)
+for the full set of functions available in Yeppp!.
